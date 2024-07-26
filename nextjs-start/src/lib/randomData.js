@@ -1,6 +1,6 @@
-// Random restaurant data that is added to Firestore
-// After you've signed into Friendly Eats, click the dropdown
-// menu in the top right corner and select "Add random data"
+// Datos aleatorios del restaurante que se añaden a Firestore
+// Después de iniciar sesión en Friendly Eats, haz clic en el menú desplegable
+// en la esquina superior derecha y selecciona "Añadir datos aleatorios".
 
 export const randomData = {
 	restaurantNames: [

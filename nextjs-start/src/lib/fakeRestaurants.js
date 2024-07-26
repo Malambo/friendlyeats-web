@@ -16,7 +16,7 @@ export async function generateFakeRestaurantsAndReviews() {
 
 		const ratingsData = [];
 
-		// Generate a random number of ratings/reviews for this restaurant
+		// Generar un número aleatorio de valoraciones/respuestas para este restaurante
 		for (let j = 0; j < randomNumberBetween(0, 5); j++) {
 			const ratingTimestamp = Timestamp.fromDate(
 				getRandomDateAfter(restaurantTimestamp.toDate())

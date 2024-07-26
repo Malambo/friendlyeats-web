@@ -86,7 +86,7 @@ export async function getReviewsByRestaurantId(db, restaurantId) {
 		return {
 			id: doc.id,
 			...doc.data(),
-			// Only plain objects can be passed to Client Components from Server Components
+			// Sólo se pueden pasar objetos planos a los componentes cliente desde los componentes servidor.
 			timestamp: doc.data().timestamp.toDate(),
 		};
 	});
@@ -107,7 +107,7 @@ export function getReviewsSnapshotByRestaurantId(restaurantId, cb) {
 			return {
 				id: doc.id,
 				...doc.data(),
-				// Only plain objects can be passed to Client Components from Server Components
+				// Sólo se pueden pasar objetos planos a los componentes cliente desde los componentes servidor.
 				timestamp: doc.data().timestamp.toDate(),
 			};
 		});

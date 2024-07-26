@@ -1,5 +1,9 @@
-// enforces that this code can only be called on the server
+// impone que este código sólo puede ser llamado en el servidor
+// Ahora, cualquier componente cliente que importe funciones del
+// servidor recibirá un error de compilación explicando que este
+// módulo sólo puede utilizarse en el servidor.
 // https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns#keeping-server-only-code-out-of-the-client-environment
+
 import "server-only";
 
 import { headers } from "next/headers";
