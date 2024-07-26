@@ -4,7 +4,7 @@
 
 import {useEffect, useLayoutEffect, useRef} from "react";
 import RatingPicker from "@/src/components/RatingPicker.jsx";
-import { handleReviewFormSubmission } from "@/src/app/actions.js";
+import {handleReviewFormSubmission} from "@/src/app/actions.js";
 
 const ReviewDialog = ({
 	isOpen,

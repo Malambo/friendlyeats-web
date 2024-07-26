@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { getReviewsSnapshotByRestaurantId } from "@/src/lib/firebase/firestore.js";
-import { Review } from "@/src/components/Reviews/Review";
+import React, {useState, useEffect} from "react";
+import {getReviewsSnapshotByRestaurantId} from "@/src/lib/firebase/firestore.js";
+import {Review} from "@/src/components/Reviews/Review";
 
 export default function ReviewsListClient({
   initialReviews,
@@ -16,9 +16,9 @@ export default function ReviewsListClient({
       restaurantId,
       (data) => {
         setReviews(data);
-      }
+   }
     );
-  }, [restaurantId]);
+}, [restaurantId]);
   return (
     <article>
       <ul className="reviews">

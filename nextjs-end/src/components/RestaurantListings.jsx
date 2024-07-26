@@ -4,13 +4,13 @@
 // It receives data from src/app/page.jsx, such as the initial restaurants and search params from the URL
 
 import Link from "next/link";
-import { React, useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import {React, useState, useEffect} from "react";
+import {useRouter} from "next/navigation";
 import renderStars from "@/src/components/Stars.jsx";
-import { getRestaurantsSnapshot } from "@/src/lib/firebase/firestore.js";
+import {getRestaurantsSnapshot} from "@/src/lib/firebase/firestore.js";
 import Filters from "@/src/components/Filters.jsx";
 
-const RestaurantItem = ({ restaurant }) => (
+const RestaurantItem = ({restaurant}) => (
 	<li key={restaurant.id}>
 		<Link href={`/restaurant/${restaurant.id}`}>
 			<ActiveResturant restaurant={restaurant} />
@@ -18,20 +18,20 @@ const RestaurantItem = ({ restaurant }) => (
 	</li>
 );
 
-const ActiveResturant = ({ restaurant }) => (
+const ActiveResturant = ({restaurant}) => (
 	<div>
 		<ImageCover photo={restaurant.photo} name={restaurant.name} />
 		<ResturantDetails restaurant={restaurant} />
 	</div>
 );
 
-const ImageCover = ({ photo, name }) => (
+const ImageCover = ({photo, name}) => (
 	<div className="image-cover">
 		<img src={photo} alt={name} />
 	</div>
 );
 
-const ResturantDetails = ({ restaurant }) => (
+const ResturantDetails = ({restaurant}) => (
 	<div className="restaurant__details">
 		<h2>{restaurant.name}</h2>
 		<RestaurantRating restaurant={restaurant} />
@@ -39,14 +39,14 @@ const ResturantDetails = ({ restaurant }) => (
 	</div>
 );
 
-const RestaurantRating = ({ restaurant }) => (
+const RestaurantRating = ({restaurant}) => (
 	<div className="restaurant__rating">
 		<ul>{renderStars(restaurant.avgRating)}</ul>
 		<span>({restaurant.numRatings})</span>
 	</div>
 );
 
-const RestaurantMetadata = ({ restaurant }) => (
+const RestaurantMetadata = ({restaurant}) => (
 	<div className="restaurant__meta">
 		<p>
 			{restaurant.category} | {restaurant.city}

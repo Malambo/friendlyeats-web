@@ -2,7 +2,7 @@
 // Tags show what filters have been selected
 // On click, the tag is removed and the filter is reset
 
-export default function Tag({ type, value, updateField }) {
+export default function Tag({type, value, updateField}) {
 	return (
 		<span className="">
 			{value}

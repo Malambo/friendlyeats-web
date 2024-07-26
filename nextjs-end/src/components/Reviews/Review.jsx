@@ -1,7 +1,7 @@
 import renderStars from "@/src/components/Stars.jsx";
 
 
-export function Review({ rating, text, timestamp }) {
+export function Review({rating, text, timestamp}) {
   return (<li className="review__item">
     <ul className="restaurant__rating">{renderStars(rating)}</ul>
     <p>{text}</p>
@@ -9,7 +9,7 @@ export function Review({ rating, text, timestamp }) {
     <time>
       {new Intl.DateTimeFormat("en-GB", {
         dateStyle: "medium",
-      }).format(timestamp)}
+   }).format(timestamp)}
     </time>
   </li>);
 }

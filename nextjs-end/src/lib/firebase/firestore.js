@@ -1,4 +1,4 @@
-import { generateFakeRestaurantsAndReviews } from "@/src/lib/fakeRestaurants.js";
+import {generateFakeRestaurantsAndReviews} from "@/src/lib/fakeRestaurants.js";
 
 import {
 	collection,
@@ -16,7 +16,7 @@ import {
 	getFirestore,
 } from "firebase/firestore";
 
-import { db } from "@/src/lib/firebase/clientApp";
+import {db} from "@/src/lib/firebase/clientApp";
 
 export async function updateRestaurantImageReference(
 	restaurantId,
@@ -24,7 +24,7 @@ export async function updateRestaurantImageReference(
 ) {
 	const restaurantRef = doc(collection(db, "restaurants"), restaurantId);
 	if (restaurantRef) {
-		await updateDoc(restaurantRef, { photo: publicImageUrl });
+		await updateDoc(restaurantRef, {photo: publicImageUrl});
 	}
 }
 
@@ -80,7 +80,7 @@ export async function addReviewToRestaurant(db, restaurantId, review) {
 	}
 }
 
-function applyQueryFilters(q, { category, city, price, sort }) {
+function applyQueryFilters(q, {category, city, price, sort}) {
 	if (category) {
 		q = query(q, where("category", "==", category));
 	}
@@ -220,7 +220,7 @@ export function getReviewsSnapshotByRestaurantId(restaurantId, cb) {
 
 export async function addFakeRestaurantsAndReviews() {
 	const data = await generateFakeRestaurantsAndReviews();
-	for (const { restaurantData, ratingsData } of data) {
+	for (const {restaurantData, ratingsData} of data) {
 		try {
 			const docRef = await addDoc(
 				collection(db, "restaurants"),

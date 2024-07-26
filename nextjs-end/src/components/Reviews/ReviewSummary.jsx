@@ -1,17 +1,17 @@
-const { GoogleGenerativeAI } = require("@google/generative-ai");
-import { getReviewsByRestaurantId } from "@/src/lib/firebase/firestore.js";
-import { getAuthenticatedAppForUser } from "@/src/lib/firebase/serverApp";
-import { getFirestore } from "firebase/firestore";
+const {GoogleGenerativeAI} = require("@google/generative-ai");
+import {getReviewsByRestaurantId} from "@/src/lib/firebase/firestore.js";
+import {getAuthenticatedAppForUser} from "@/src/lib/firebase/serverApp";
+import {getFirestore} from "firebase/firestore";
 
-export async function GeminiSummary({ restaurantId }) {
-  const { firebaseServerApp } = await getAuthenticatedAppForUser();
+export async function GeminiSummary({restaurantId}) {
+  const {firebaseServerApp} = await getAuthenticatedAppForUser();
   const reviews = await getReviewsByRestaurantId(
     getFirestore(firebaseServerApp),
     restaurantId
   );
 
   const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-  const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+  const model = genAI.getGenerativeModel({model: "gemini-pro"});
 
   const reviewSeparator = "@";
   const prompt = `
@@ -33,7 +33,7 @@ export async function GeminiSummary({ restaurantId }) {
         <p>✨ Summarized with Gemini</p>
       </div>
     );
-  } catch (e) {
+} catch (e) {
     console.error(e);
     if (e.message.includes("403 Forbidden")) {
       return (
@@ -42,10 +42,10 @@ export async function GeminiSummary({ restaurantId }) {
           Vertex
         </p>
       );
-    } else {
+ } else {
       return <p>Error contacting Gemini</p>;
-    }
-  }
+ }
+}
 }
 
 export function GeminiSummarySkeleton() {

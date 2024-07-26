@@ -1,22 +1,22 @@
 'use client'
-import React, { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 import Link from "next/link";
 import {
 	signInWithGoogle,
 	signOut,
 	onAuthStateChanged
 } from "@/src/lib/firebase/auth.js";
-import { addFakeRestaurantsAndReviews } from "@/src/lib/firebase/firestore.js";
-import { useRouter } from "next/navigation";
-import { firebaseConfig } from "@/src/lib/firebase/config";
+import {addFakeRestaurantsAndReviews} from "@/src/lib/firebase/firestore.js";
+import {useRouter} from "next/navigation";
+import {firebaseConfig} from "@/src/lib/firebase/config";
 
 function useUserSession(initialUser) {
-	// The initialUser comes from the server via a server component
+	// El usuario inicial procede del servidor a través de un componente de servidor
 	const [user, setUser] = useState(initialUser);
 	const router = useRouter();
 
-	// Register the service worker that sends auth state back to server
-	// The service worker is built with npm run build-service-worker
+	// Registrar el trabajador de servicio que envía el estado de autenticación al servidor
+	// El service worker se construye con npm run build-service-worker
 	useEffect(() => {
 		if ("serviceWorker" in navigator) {
 			const serializedFirebaseConfig = encodeURIComponent(JSON.stringify(firebaseConfig));
@@ -26,7 +26,7 @@ function useUserSession(initialUser) {
 			.register(serviceWorkerUrl)
 			.then((registration) => console.log("scope is: ", registration.scope));
 		}
-	  }, []);
+	}, []);
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged((authUser) => {
@@ -41,7 +41,7 @@ function useUserSession(initialUser) {
 		onAuthStateChanged((authUser) => {
 			if (user === undefined) return
 
-			// refresh when user changed to ease testing
+			// refrescar cuando el usuario cambie para facilitar las pruebas
 			if (user?.email !== authUser?.email) {
 				router.refresh()
 			}
@@ -90,13 +90,13 @@ export default function Header({initialUser}) {
 										href="#"
 										onClick={addFakeRestaurantsAndReviews}
 									>
-										Add sample restaurants
+										Añadir muestras de restaurantes
 									</a>
 								</li>
 
 								<li>
 									<a href="#" onClick={handleSignOut}>
-										Sign Out
+									Cerrar sesión
 									</a>
 								</li>
 							</ul>
@@ -106,7 +106,7 @@ export default function Header({initialUser}) {
 			) : (
 				<div className="profile"><a href="#" onClick={handleSignIn}>
 					<img src="/profile.svg" alt="A placeholder user image" />
-					Sign In with Google
+					Iniciar sesión con Google
 				</a></div>
 			)}
 		</header>

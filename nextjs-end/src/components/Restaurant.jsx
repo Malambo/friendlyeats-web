@@ -3,14 +3,14 @@
 // This components shows one individual restaurant
 // It receives data from src/app/restaurant/[id]/page.jsx
 
-import { React, useState, useEffect, Suspense } from "react";
+import {React, useState, useEffect, Suspense} from "react";
 import dynamic from 'next/dynamic'
 import {
   getRestaurantSnapshotById,
 } from "@/src/lib/firebase/firestore.js";
 import {useUser} from '@/src/lib/getUser'
 import RestaurantDetails from "@/src/components/RestaurantDetails.jsx";
-import { updateRestaurantImage } from "@/src/lib/firebase/storage.js";
+import {updateRestaurantImage} from "@/src/lib/firebase/storage.js";
 
 const ReviewDialog = dynamic(() => import('@/src/components/ReviewDialog.jsx'));
 
@@ -28,36 +28,36 @@ export default function Restaurant({
   const [review, setReview] = useState({
     rating: 0,
     text: "",
-  });
+});
 
   const onChange = (value, name) => {
-    setReview({ ...review, [name]: value });
-  };
+    setReview({...review, [name]: value});
+};
 
   async function handleRestaurantImage(target) {
     const image = target.files ? target.files[0] : null;
     if (!image) {
       return;
-    }
+ }
 
     const imageURL = await updateRestaurantImage(id, image);
-    setRestaurantDetails({ ...restaurant, photo: imageURL });
-  }
+    setRestaurantDetails({...restaurant, photo: imageURL});
+}
 
   const handleClose = () => {
     setIsOpen(false);
-    setReview({ rating: 0, text: "" });
-  };
+    setReview({rating: 0, text: ""});
+};
 
   useEffect(() => {
     const unsubscribeFromRestaurant = getRestaurantSnapshotById(id, (data) => {
       setRestaurantDetails(data);
-    });
+ });
 
     return () => {
       unsubscribeFromRestaurant();
-    };
-  }, []);
+ };
+}, []);
 
   return (
     <>

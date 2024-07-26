@@ -2,7 +2,7 @@
 
 import Tag from "@/src/components/Tag.jsx";
 
-function FilterSelect({ label, options, value, onChange, name, icon }) {
+function FilterSelect({label, options, value, onChange, name, icon}) {
 	return (
 		<div>
 			<img src={icon} alt={label} />
@@ -20,7 +20,7 @@ function FilterSelect({ label, options, value, onChange, name, icon }) {
 	);
 }
 
-export default function Filters({ filters, setFilters }) {
+export default function Filters({filters, setFilters}) {
 	const handleSelectionChange = (event, name) => {
 		setFilters(prevFilters => ({
 			...prevFilters,
@@ -29,7 +29,7 @@ export default function Filters({ filters, setFilters }) {
 	};
 
 	const updateField = (type, value) => {
-		setFilters({ ...filters, [type]: value });
+		setFilters({...filters, [type]: value});
 	};
 
 	return (
