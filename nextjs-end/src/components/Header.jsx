@@ -1,4 +1,5 @@
 'use client'
+
 import {useState, useEffect} from "react";
 import Link from "next/link";
 import {
@@ -96,7 +97,7 @@ export default function Header({initialUser}) {
 
 								<li>
 									<a href="#" onClick={handleSignOut}>
-									Cerrar sesión
+										Cerrar sesión
 									</a>
 								</li>
 							</ul>
@@ -104,10 +105,12 @@ export default function Header({initialUser}) {
 					</div>
 				</>
 			) : (
-				<div className="profile"><a href="#" onClick={handleSignIn}>
-					<img src="/profile.svg" alt="A placeholder user image" />
-					Iniciar sesión con Google
-				</a></div>
+				<div className="profile">
+					<a href="#" onClick={handleSignIn}>
+						<img src="/profile.svg" alt="A placeholder user image" />
+						Iniciar sesión con Google
+					</a>
+				</div>
 			)}
 		</header>
 	);

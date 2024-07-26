@@ -30,7 +30,7 @@ export async function GeminiSummary({restaurantId}) {
     return (
       <div className="restaurant__review_summary">
         <p>{text}</p>
-        <p>✨ Summarized with Gemini</p>
+        <p>✨ Resumido con Gemini</p>
       </div>
     );
 } catch (e) {
@@ -38,12 +38,12 @@ export async function GeminiSummary({restaurantId}) {
     if (e.message.includes("403 Forbidden")) {
       return (
         <p>
-          This service account doesn't have permission to talk to Gemini via
+          Esta cuenta de servicio no tiene permiso para hablar con Gemini a través de
           Vertex
         </p>
       );
  } else {
-      return <p>Error contacting Gemini</p>;
+      return <p>Error al contactar con Gemini</p>;
  }
 }
 }
@@ -51,7 +51,7 @@ export async function GeminiSummary({restaurantId}) {
 export function GeminiSummarySkeleton() {
   return (
     <div className="restaurant__review_summary">
-      <p>✨ Summarizing reviews with Gemini...</p>
+      <p>✨ Resumiendo reseñas con Géminis...</p>
     </div>
   );
 }

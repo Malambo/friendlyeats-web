@@ -1,5 +1,5 @@
 (() => {
-  // node_modules/@firebase/util/dist/index.esm2017.js
+  // node_modules/.pnpm/@firebase+util@1.9.7/node_modules/@firebase/util/dist/index.esm2017.js
   var stringToByteArray$1 = function(str) {
     const out = [];
     let p = 0;
@@ -661,7 +661,7 @@
     }
   }
 
-  // node_modules/@firebase/component/dist/esm/index.esm2017.js
+  // node_modules/.pnpm/@firebase+component@0.6.8/node_modules/@firebase/component/dist/esm/index.esm2017.js
   var Component = class {
     /**
      *
@@ -950,7 +950,7 @@
     }
   };
 
-  // node_modules/@firebase/logger/dist/esm/index.esm2017.js
+  // node_modules/.pnpm/@firebase+logger@0.4.2/node_modules/@firebase/logger/dist/esm/index.esm2017.js
   var instances = [];
   var LogLevel;
   (function(LogLevel2) {
@@ -1056,7 +1056,7 @@
     }
   };
 
-  // node_modules/idb/build/wrap-idb-value.js
+  // node_modules/.pnpm/idb@7.1.1/node_modules/idb/build/wrap-idb-value.js
   var instanceOfAny = (object, constructors) => constructors.some((c) => object instanceof c);
   var idbProxyableTypes;
   var cursorAdvanceMethods;
@@ -1199,7 +1199,7 @@
   }
   var unwrap = (value) => reverseTransformCache.get(value);
 
-  // node_modules/idb/build/index.js
+  // node_modules/.pnpm/idb@7.1.1/node_modules/idb/build/index.js
   function openDB(name5, version5, { blocked, upgrade, blocking, terminated } = {}) {
     const request = indexedDB.open(name5, version5);
     const openPromise = wrap(request);
@@ -1263,7 +1263,7 @@
     has: (target, prop) => !!getMethod(target, prop) || oldTraps.has(target, prop)
   }));
 
-  // node_modules/@firebase/app/dist/esm/index.esm2017.js
+  // node_modules/.pnpm/@firebase+app@0.10.7/node_modules/@firebase/app/dist/esm/index.esm2017.js
   var PlatformLoggerServiceImpl = class {
     constructor(container) {
       this.container = container;
@@ -1824,12 +1824,12 @@
   }
   registerCoreComponents("");
 
-  // node_modules/firebase/app/dist/esm/index.esm.js
+  // node_modules/.pnpm/firebase@10.12.4/node_modules/firebase/app/dist/esm/index.esm.js
   var name2 = "firebase";
   var version2 = "10.12.4";
   registerVersion(name2, version2, "app");
 
-  // node_modules/tslib/tslib.es6.mjs
+  // node_modules/.pnpm/tslib@2.6.3/node_modules/tslib/tslib.es6.mjs
   function __rest(s, e) {
     var t = {};
     for (var p in s)
@@ -1843,7 +1843,7 @@
     return t;
   }
 
-  // node_modules/firebase/node_modules/@firebase/auth/dist/esm2017/index-54738136.js
+  // node_modules/.pnpm/@firebase+auth@1.7.5_@firebase+app@0.10.7/node_modules/@firebase/auth/dist/esm2017/index-54738136.js
   function _prodErrorMap() {
     return {
       [
@@ -7407,7 +7407,7 @@
     /* ClientPlatform.BROWSER */
   );
 
-  // node_modules/@firebase/installations/dist/esm/index.esm2017.js
+  // node_modules/.pnpm/@firebase+installations@0.6.8_@firebase+app@0.10.7/node_modules/@firebase/installations/dist/esm/index.esm2017.js
   var name4 = "@firebase/installations";
   var version4 = "0.6.8";
   var PENDING_TIMEOUT_MS = 1e4;

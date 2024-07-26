@@ -16,7 +16,7 @@ export async function signInWithGoogle() {
   try {
     await signInWithPopup(auth, provider);
 } catch (error) {
-    console.error("Error signing in with Google", error);
+    console.error("Error al iniciar sesión con Google", error);
 }
 }
 
@@ -24,6 +24,6 @@ export async function signOut() {
   try {
     return auth.signOut();
 } catch (error) {
-    console.error("Error signing out with Google", error);
+    console.error("Error al cerrar sesión con Google", error);
 }
 }

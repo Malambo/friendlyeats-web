@@ -1,6 +1,5 @@
 // This component handles the list of reviews for a given restaurant
 
-import React from "react";
 import {getReviewsByRestaurantId} from "@/src/lib/firebase/firestore.js";
 import ReviewsListClient from "@/src/components/Reviews/ReviewsListClient";
 import {ReviewSkeleton} from "@/src/components/Reviews/Review";

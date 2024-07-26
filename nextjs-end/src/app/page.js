@@ -3,16 +3,15 @@ import {getRestaurants} from "@/src/lib/firebase/firestore.js";
 import {getAuthenticatedAppForUser} from "@/src/lib/firebase/serverApp.js";
 import {getFirestore} from "firebase/firestore";
 
-// Force next.js to treat this route as server-side rendered
-// Without this line, during the build process, next.js will treat this route as static and build a static HTML file for it
-
+// Fuerza a next.js a tratar esta ruta como renderizada del lado del servidor
+// Sin esta línea, durante el proceso de construcción, next.js tratará esta ruta como estática y construirá un archivo HTML estático para ella
 export const dynamic = "force-dynamic";
 
-// This line also forces this route to be server-side rendered
+// Esta línea también fuerza a esta ruta a ser renderizada del lado del servidor
 // export const revalidate = 0;
 
 export default async function Home({searchParams}) {
-	// Using seachParams which Next.js provides, allows the filtering to happen on the server-side, for example:
+	// El uso de seachParams que proporciona Next.js permite, por ejemplo, que el filtrado se realice en el lado del servidor:
 	// ?city=London&category=Indian&sort=Review
 	const {firebaseServerApp} = await getAuthenticatedAppForUser();
 	const restaurants = await getRestaurants(getFirestore(firebaseServerApp), searchParams);

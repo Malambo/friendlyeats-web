@@ -16,7 +16,7 @@ const ReviewDialog = ({
 }) => {
 	const dialog = useRef();
 
-	// dialogs only render their backdrop when called with `showModal`
+	// los cuadros de diálogo sólo muestran su telón de fondo cuando se invocan con `showModal`.
 	useLayoutEffect(() => {
 		if (isOpen) {
 			dialog.current.showModal();
